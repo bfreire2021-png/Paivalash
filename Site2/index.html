@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiva Lash</title>
+    <meta name="description" content="Paiva Lash — Extensão de cílios com cola vegana 🌱. Beleza, conforto e segurança com técnicas modernas como Volume Russo, Fio a Fio, Híbrido e mais.">
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff6f6;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: #000;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            background: linear-gradient(90deg, #fff, #d4a5a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #d4a5a5, #b58d8d);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        nav a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(181,141,141,0.6);
+            background: linear-gradient(135deg, #b58d8d, #e2b7b7);
+        }
+
+        /* destaque no botão de agendamento */
+        nav a:last-child {
+            background: linear-gradient(135deg, #b58d8d, #8c6c6c);
+            border: 2px solid #fff;
+        }
+
+        nav a:last-child:hover {
+            background: linear-gradient(135deg, #d4a5a5, #b58d8d);
+            transform: scale(1.05);
+        }
+
+        /* ===== SEÇÕES ===== */
+        section {
+            padding: 60px 20px;
+        }
+
+        #about h2,
+        #services h2,
+        #gallery h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #b58d8d;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .about-text {
+            background-color: #fff;
+            padding: 35px 45px;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.05em;
+            text-align: justify;
+            transition: all 0.3s ease;
+        }
+
+        .about-text:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* ===== SERVIÇOS ===== */
+        #services {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1000px;
+        }
+
+        .service {
+            background-color: #fff;
+            border: 1px solid #f0d4d4;
+            border-radius: 15px;
+            width: 220px;
+            height: 180px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .service h3 {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .tag {
+            background-color: #d4a5a5;
+            color: white;
+            font-size: 0.85em;
+            padding: 5px 12px;
+            border-radius: 25px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #b58d8d;
+        }
+
+        /* ===== GALERIA ===== */
+        .gallery p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .gallery-item {
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.95em;
+        }
+
+        footer a {
+            color: #d4a5a5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .services-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-area">
+            <img src="imagem1.jpeg" alt="Logo Paiva Lash" class="logo">
+        </div>
+        <nav>
+            <a href="#about">Sobre</a>
+            <a href="#services">Serviços</a>
+            <a href="#gallery">Galeria</a>
+            <a href="https://instagram.com/paiv_alash" target="_blank">Marcar Procedimento</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>Sobre Nós</h2>
+        <div class="about-text">
+            <p>Bem-vinda à <strong>Paiva Lash</strong> — um espaço dedicado à arte e ao cuidado com o olhar. Aqui, combinamos técnicas modernas com produtos de alta qualidade para garantir resultados perfeitos em extensões de cílios e design de sobrancelhas.</p>
+            <p>Em todos os nossos procedimentos, utilizamos <strong>cola vegana 🌱</strong>, livre de ingredientes de origem animal e mais suave para a pele e os olhos. Diferente da cola tradicional, ela reduz o risco de alergias e irritações, proporcionando segurança, conforto e resultados duradouros.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Nossos Serviços</h2>
+        <div class="services-container">
+            <div class="service"><h3>Strip Lash</h3><div class="tag">Cola Vegana 🌱</div><p class="price">R$ ___</p></div>
+            <div class="service"><h3>Volume Russo</h3><div class="tag">Cola Vegana 🌱</div><p class="price">R$ ___</p></div>
+            <div class="service"><h3>Fio a Fio</h3><div class="tag">Cola Vegana 🌱</div><p class="price">R$ ___</p></div>
+            <div class="service"><h3>Híbrido Fox</h3><div class="tag">Cola Vegana 🌱</div><p class="price">R$ ___</p></div>
+            <div class="service"><h3>Híbrido</h3><div class="tag">Cola Vegana 🌱</div><p class="price">R$ ___</p></div>
+            <div class="service"><h3>Stripy Lash</h3><div class="tag">Cola Vegana 🌱</div><p class="price">R$ ___</p></div>
+            <div class="service"><h3>Volume Brasileiro</h3><div class="tag">Cola Vegana 🌱</div><p class="price">R$ ___</p></div>
+            <div class="service"><h3>Método Pauly Sierra</h3><div class="tag">Cola Vegana 🌱</div><p class="price">R$ ___</p></div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Galeria</h2>
+        <p>Em breve, nossas fotos e resultados incríveis estarão aqui!</p>
+        <div class="gallery-container">
+            <div class="gallery-item"><img src="img1.jpg" alt="Extensão de cílios modelo 1"></div>
+            <div class="gallery-item"><img src="img2.jpg" alt="Extensão de cílios modelo 2"></div>
+            <div class="gallery-item"><img src="img3.jpg" alt="Extensão de cílios modelo 3"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Siga-nos no Instagram: <a href="https://instagram.com/paiv_alash" target="_blank">@paiv_alash</a></p>
+        <p>© 2025 Paiva Lash. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
